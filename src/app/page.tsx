@@ -1,5 +1,4 @@
 import Image from 'next/image'
-// import something from 'somethingNotthere'
 
 export default function Home() {
   return (
