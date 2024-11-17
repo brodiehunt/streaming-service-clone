@@ -6,5 +6,11 @@ const buildEslintCommand = filenames =>
     .join(' --file ')}`
 
 module.exports = {
-  '*.{js,jsx,ts,tsx}': [buildEslintCommand],
+  // '*.{js,jsx,ts,tsx}': [buildEslintCommand],
+  '**/*.ts?(x)': [
+    'npm run prettier:check',
+    () => 'tsc -p tsconfig.json --noEmit',
+    buildEslintCommand,
+  ],
+  '**/*.{js,jsx}': ['npm run prettier:check', buildEslintCommand],
 }
