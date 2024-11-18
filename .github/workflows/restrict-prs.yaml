@@ -1,0 +1,17 @@
+name: Restrict PRs to Main
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Base Branch
+        run: |
+          if [[ "${{ github.event.pull_request.head.ref }}" != "test" ]]; then
+            echo "Pull requests to 'main' are only allowed from 'test'."
+            exit 1
+          fi
