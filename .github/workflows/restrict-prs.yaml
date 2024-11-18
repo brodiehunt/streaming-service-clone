@@ -9,6 +9,11 @@ jobs:
   check-branch:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Information
+        run: |
+          echo "Target branch: ${{ github.base_ref }}"
+          echo "Source branch: ${{ github.head_ref }}"
+
       - name: Check Base Branch
         run: |
           if [[ "${{ github.event.pull_request.head.ref }}" != "test" ]]; then
