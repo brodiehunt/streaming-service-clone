@@ -1,0 +1,49 @@
+services:
+  db:
+    image: postgres:15
+    container_name: app-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgrespassword}
+      POSTGRES_DB: ${POSTGRES_DB:-nine_now}
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-postgres}']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs-app
+    restart: always
+    ports:
+      - '3000:3000'
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgrespassword}@db:5432/${POSTGRES_DB:-nine_now}?schema=public
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - NODE_ENV=production
+    depends_on:
+      db:
+        condition: service_healthy
+    command: >
+      sh -c "
+        echo 'Current directory:' &&
+        pwd &&
+        echo 'Directory contents:' &&
+        ls -la &&
+        echo 'Prisma directory contents:' &&
+        ls -la prisma &&
+        echo 'Running migrations...' &&
+        npx prisma migrate deploy &&
+        echo 'Migration complete, starting server...' &&
+        node server.js"
+
+volumes:
+  postgres_data:
