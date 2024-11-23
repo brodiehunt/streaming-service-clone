@@ -1,5 +1,6 @@
 import SignUpForm from '@/components/auth/SignUpForm'
 import Image from 'next/image'
+
 export default function SignupPage() {
   return (
     <div className="w-full min-h-[100vh] px-4 py-7 relative">
