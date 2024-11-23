@@ -4,7 +4,7 @@ import FormInput from '@/components/auth/Input'
 import { useForm } from 'react-hook-form'
 // import { useForm, SubmitHandler } from 'react-hook-form'
 // import { zodResolver } from '@hookform/resolvers/zod'
-// import { signupSchema } from '@/lib/zodSchemas'
+// import { resetPasswordSchema } from '@/lib/zodSchemas'
 // import { z } from 'zod'
 import FormButton from './FormButton'
 
