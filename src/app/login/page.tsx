@@ -8,7 +8,7 @@ export default async function LoginPage() {
   if (user) return redirect('/')
 
   return (
-    <div className="w-full min-h-[100vh] px-4 py-7 relative">
+    <div className="w-full min-h-[100vh] px-4 py-7 fixed top-0 left-0 z-10">
       <header className="relative z-20 mb-4 max-w-[600px] mx-auto">
         <h1 className="text-center text-xl font-bold mb-4 md:text-white md:text-3xl">
           Welcome, enter your email to log in or create your account
