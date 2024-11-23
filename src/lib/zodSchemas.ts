@@ -9,7 +9,7 @@ export const signupSchema = z
   .object({
     email: z.string().email(),
     password: z.string().min(8),
-    confirmPassword: z.string().min(8),
+    confirmPassword: z.string().min(8).max(50),
     givenName: z.string().min(2).max(50),
     familyName: z.string().min(2).max(50),
   })

@@ -7,7 +7,7 @@ import prisma from '@/lib/prisma'
 export const checkUserExists = async (
   values: z.infer<typeof emailSchema>,
 ): Promise<void | { success: boolean; message: string }> => {
-  console.log('I am running on the server', values)
+  console.log('Check user exists server action', values)
   let isUser = false
   try {
     const user = await prisma.user.findUnique({

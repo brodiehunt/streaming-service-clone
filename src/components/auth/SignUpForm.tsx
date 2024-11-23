@@ -7,6 +7,9 @@ import { signupSchema } from '@/lib/zodSchemas'
 import { z } from 'zod'
 import FormButton from './FormButton'
 import Link from 'next/link'
+import { useState } from 'react'
+import ServerErrorNotification from './ServerErrorNotification'
+import { signup } from '@/app/signup/signup.action'
 
 type SignupForm = z.infer<typeof signupSchema>
 export default function SignUpForm() {
@@ -15,14 +18,32 @@ export default function SignUpForm() {
     handleSubmit,
     formState: { errors },
   } = useForm<SignupForm>({ resolver: zodResolver(signupSchema) })
+  const [serverError, setServerError] = useState('')
 
   const handleRegisterFormSubmission: SubmitHandler<
     SignupForm
   > = async data => {
-    console.log('Hello This is working', data)
+    setServerError('')
+
+    try {
+      const response = await signup(data)
+
+      if (typeof response === 'undefined') return
+
+      if (!response.success) {
+        setServerError(response.message)
+      }
+    } catch {
+      setServerError('An error occured. Try again later')
+    }
   }
   return (
     <FormWrapper>
+      {serverError && (
+        <ServerErrorNotification setServerError={setServerError}>
+          {serverError}
+        </ServerErrorNotification>
+      )}
       <form onSubmit={handleSubmit(handleRegisterFormSubmission)}>
         <div className="two-col">
           <FormInput
