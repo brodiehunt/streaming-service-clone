@@ -9,7 +9,10 @@ const InputWrapper = styled.div`
   margin-bottom: 1rem;
 `
 
-const InputLabel = styled.label``
+const InputLabel = styled.label`
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.8);
+`
 
 const InputField = styled.input<{ $errorStyle?: boolean }>`
   padding: 10px 8px;
@@ -17,14 +20,29 @@ const InputField = styled.input<{ $errorStyle?: boolean }>`
   border: 1px solid rgb(218, 218, 218);
   transition-property: border-color;
   transition-duration: 200ms;
+  border-color: ${props =>
+    props.$errorStyle ? 'rgb(220 38 38)' : 'rgb(218, 218, 218)'};
 
   &:focus {
     outline: none;
-    border-color: #00beff;
+    border-color: ${props =>
+      props.$errorStyle ? 'rgb(220 38 38)' : '#00beff'};
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    /* -webkit-text-fill-color: white !important; */
   }
 `
 
-const InputError = styled.div``
+const InputError = styled.div`
+  color: rgb(220 38 38);
+  font-size: 12px;
+  font-weight: 500;
+`
 
 interface FormInputProps<T extends FieldValues> {
   register: UseFormRegister<T>

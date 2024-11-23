@@ -29,7 +29,7 @@ const FormButton: React.FC<{
   children: React.ReactNode
   disabled: boolean
 }> = ({ children }) => {
-  return <FormButtonEl>{children}</FormButtonEl>
+  return <FormButtonEl type="submit">{children}</FormButtonEl>
 }
 
 export default FormButton

@@ -1,7 +1,7 @@
 'use client'
 import { FormWrapper } from '@/components/auth/StyledComponents'
 import FormInput from '@/components/auth/Input'
-import { useForm } from 'react-hook-form'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { signupSchema } from '@/lib/zodSchemas'
 import { z } from 'zod'
@@ -12,12 +12,18 @@ type SignupForm = z.infer<typeof signupSchema>
 export default function SignUpForm() {
   const {
     register,
-    // handleSubmit,
+    handleSubmit,
     formState: { errors },
   } = useForm<SignupForm>({ resolver: zodResolver(signupSchema) })
+
+  const handleRegisterFormSubmission: SubmitHandler<
+    SignupForm
+  > = async data => {
+    console.log('Hello This is working', data)
+  }
   return (
     <FormWrapper>
-      <form>
+      <form onSubmit={handleSubmit(handleRegisterFormSubmission)}>
         <div className="two-col">
           <FormInput
             register={register}
