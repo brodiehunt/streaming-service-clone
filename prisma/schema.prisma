@@ -19,7 +19,6 @@ model User {
   givenName String
   familyName String
   hashedPassword String
-  gender String
   sessions Session[]
 }
 
