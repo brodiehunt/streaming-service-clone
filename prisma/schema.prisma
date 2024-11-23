@@ -19,6 +19,8 @@ model User {
   givenName String
   familyName String
   hashedPassword String
+  passwordResetToken String?
+  tokenExpiresAt DateTime?
   sessions Session[]
 }
 
