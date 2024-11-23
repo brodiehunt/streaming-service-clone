@@ -14,4 +14,6 @@ export const signupSchema = z.object({
   gender: z.string().min(2).max(10),
 })
 
-export const emailSchema = z.string().email()
+export const emailSchema = z.object({
+  email: z.string().email(),
+})
