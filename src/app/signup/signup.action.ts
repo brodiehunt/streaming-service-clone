@@ -2,13 +2,13 @@
 import { z } from 'zod'
 import { signupSchema } from '@/lib/zodSchemas'
 import prisma from '@/lib/prisma'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import { redirect } from 'next/navigation'
 
 export const signup = async (
   values: z.infer<typeof signupSchema>,
 ): Promise<void | { success: boolean; message: string }> => {
-  console.log('I am running on the server')
+  console.log('Signup server action', values)
   let isUserCreated = false
   try {
     // Does user exist?
@@ -22,7 +22,7 @@ export const signup = async (
       return { success: false, message: 'User already exists' }
     }
 
-    const hashedPassword = await bcrypt.hash(values.password, 10)
+    const hashedPassword = await bcrypt.hash(values.password, 8)
 
     await prisma.user.create({
       data: {
