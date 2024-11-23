@@ -6,6 +6,7 @@ async function getUser() {
 }
 export default async function Home() {
   const users = await getUser()
+  console.log(process.env.DATABASE_URL)
 
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
