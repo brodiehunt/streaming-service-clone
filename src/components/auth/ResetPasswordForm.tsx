@@ -1,20 +1,21 @@
 'use client'
+
 import { FormWrapper } from './StyledComponents'
 import FormInput from './Input'
 import FormButton from './FormButton'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import Link from 'next/link'
-import { signinSchema } from '@/lib/zodSchemas'
+import { emailSchema } from '@/lib/zodSchemas'
 import { useForm } from 'react-hook-form'
+import Link from 'next/link'
 
-type SigninForm = z.infer<typeof signinSchema>
+type EmailForm = z.infer<typeof emailSchema>
 
-export default function SignInForm() {
+export default function ResetPasswordForm() {
   const {
     register,
     formState: { errors },
-  } = useForm<SigninForm>({ resolver: zodResolver(signinSchema) })
+  } = useForm<EmailForm>({ resolver: zodResolver(emailSchema) })
 
   return (
     <FormWrapper>
@@ -26,24 +27,13 @@ export default function SignInForm() {
           label="Email"
           error={errors.email?.message}
         />
-        <FormInput
-          register={register}
-          type="password"
-          name="password"
-          label="Password"
-          error={errors.password?.message}
-        />
-        <Link href="/reset-password" className="forgot-password">
-          Forgot password?
-        </Link>
-        <FormButton disabled={false}>Log in</FormButton>
+        <FormButton disabled={false}>Continue</FormButton>
       </form>
       <Link href="/" className="home-link-button">
         Log in without a password
       </Link>
       <p className="under-form-navigation">
-        Not a Member?{' '}
-        <Link href="/login-with-password">Create your account now</Link>
+        <Link href="/login">Back to log in</Link>
       </p>
     </FormWrapper>
   )

@@ -20,6 +20,21 @@ export const FormWrapper = styled.div`
     margin-bottom: 20px;
   }
 
+  .forgot-password {
+    text-align: right;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    padding: 0 0 24px 0;
+    /* font-weight: 700; */
+
+    &:hover,
+    &:focus {
+      color: rgb(0, 148, 201);
+      text-decoration: underline;
+    }
+  }
+
   .home-link-button {
     width: 100%;
     display: flex;
