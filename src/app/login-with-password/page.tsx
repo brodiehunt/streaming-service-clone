@@ -1,7 +1,11 @@
 import SignInForm from '@/components/auth/SignInForm'
 import Image from 'next/image'
+import { getCurrentSession } from '@/lib/session'
+import { redirect } from 'next/navigation'
 
-export default function LoginWithPasswordPage() {
+export default async function LoginWithPasswordPage() {
+  const { user } = await getCurrentSession()
+  if (user) return redirect('/')
   return (
     <div className="w-full min-h-[100vh] px-4 py-7 relative">
       <header className="relative z-20 mb-4">

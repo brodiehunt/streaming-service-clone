@@ -4,6 +4,11 @@ import { signupSchema } from '@/lib/zodSchemas'
 import prisma from '@/lib/prisma'
 import bcrypt from 'bcryptjs'
 import { redirect } from 'next/navigation'
+import {
+  createSession,
+  generateSessionToken,
+  setSessionTokenCookie,
+} from '@/lib/session'
 
 export const signup = async (
   values: z.infer<typeof signupSchema>,
@@ -24,7 +29,7 @@ export const signup = async (
 
     const hashedPassword = await bcrypt.hash(values.password, 8)
 
-    await prisma.user.create({
+    const user = await prisma.user.create({
       data: {
         email: values.email.toLowerCase(),
         givenName: values.givenName.toLowerCase(),
@@ -32,6 +37,12 @@ export const signup = async (
         hashedPassword: hashedPassword,
       },
     })
+
+    const token = generateSessionToken()
+
+    const session = await createSession(token, user.id)
+
+    setSessionTokenCookie(token, session.expiresAt)
 
     isUserCreated = true
     // return { success: true, message: 'User was created' }
@@ -47,7 +58,7 @@ export const signup = async (
   } else {
     return {
       success: false,
-      message: 'There was an error creating your accoutn',
+      message: 'There was an error creating your account',
     }
   }
 }

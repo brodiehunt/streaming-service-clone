@@ -1,6 +1,12 @@
 import Image from 'next/image'
 import CheckUserExistsForm from '@/components/auth/CheckUserExistsForm'
-export default function LoginPage() {
+import { getCurrentSession } from '@/lib/session'
+import { redirect } from 'next/navigation'
+
+export default async function LoginPage() {
+  const { user } = await getCurrentSession()
+  if (user) return redirect('/')
+
   return (
     <div className="w-full min-h-[100vh] px-4 py-7 relative">
       <header className="relative z-20 mb-4 max-w-[600px] mx-auto">

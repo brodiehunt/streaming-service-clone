@@ -4,6 +4,11 @@ import { redirect } from 'next/navigation'
 import { signinSchema } from '@/lib/zodSchemas'
 import { z } from 'zod'
 import bcrypt from 'bcryptjs'
+import {
+  createSession,
+  generateSessionToken,
+  setSessionTokenCookie,
+} from '@/lib/session'
 
 type Signup = z.infer<typeof signinSchema>
 
@@ -31,10 +36,16 @@ export const signin = async (
       return { success: false, message: 'Invalid credentials' }
     }
 
+    const token = generateSessionToken()
+
+    const session = await createSession(token, user.id)
+
+    setSessionTokenCookie(token, session.expiresAt)
+
     isSignedIn = true
   } catch (error) {
     if (error instanceof Error) {
-      console.log(error.message) // Safely access the message property
+      console.log(error.message)
     }
     return { success: false, message: 'Could not sign in' }
   }

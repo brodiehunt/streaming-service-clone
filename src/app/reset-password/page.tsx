@@ -1,6 +1,11 @@
 import Image from 'next/image'
 import ResetPasswordForm from '@/components/auth/ResetPasswordForm'
-export default function ResetPasswordPage() {
+import { getCurrentSession } from '@/lib/session'
+import { redirect } from 'next/navigation'
+
+export default async function ResetPasswordPage() {
+  const { user } = await getCurrentSession()
+  if (user) return redirect('/')
   return (
     <div className="w-full min-h-[100vh] px-4 py-7 relative">
       <header className="relative z-20 mb-7">

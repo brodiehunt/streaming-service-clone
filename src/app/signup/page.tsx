@@ -1,7 +1,11 @@
 import SignUpForm from '@/components/auth/SignUpForm'
 import Image from 'next/image'
+import { getCurrentSession } from '@/lib/session'
+import { redirect } from 'next/navigation'
+export default async function SignupPage() {
+  const { user } = await getCurrentSession()
+  if (user) return redirect('/')
 
-export default function SignupPage() {
   return (
     <div className="w-full min-h-[100vh] px-4 py-7 relative">
       <header className="relative z-20 mb-4">
