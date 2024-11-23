@@ -12,7 +12,9 @@ import ServerErrorNotification from './ServerErrorNotification'
 
 type ResetPasswordForm = z.infer<typeof resetPasswordSchema>
 
-const ResetPasswordConfirmForm = () => {
+const ResetPasswordConfirmForm: React.FC<{ token: string | string[] }> = ({
+  token,
+}) => {
   const [serverError, setServerError] = useState('')
   const {
     register,
@@ -20,6 +22,7 @@ const ResetPasswordConfirmForm = () => {
     formState: { errors },
   } = useForm<ResetPasswordForm>({ resolver: zodResolver(resetPasswordSchema) })
 
+  console.log(token)
   const handleResetPassword: SubmitHandler<ResetPasswordForm> = async data => {
     console.log('Working as expected...', data)
   }

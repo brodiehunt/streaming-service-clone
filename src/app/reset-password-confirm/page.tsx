@@ -3,7 +3,14 @@ import { getCurrentSession } from '@/lib/session'
 import { redirect } from 'next/navigation'
 import ResetPasswordConfirmForm from '@/components/auth/ResetPasswordConfirmForm'
 
-export default async function ResetPasswordConfirmPage() {
+export default async function ResetPasswordConfirmPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
+  const { token } = await searchParams
+  console.log(token)
+  if (!token) return redirect('/')
   const { user } = await getCurrentSession()
   if (user) return redirect('/')
 
@@ -28,7 +35,7 @@ export default async function ResetPasswordConfirmPage() {
         />
         <div className="absolute w-full h-full inset-0 bg-black bg-opacity-50"></div>
       </div>
-      <ResetPasswordConfirmForm />
+      <ResetPasswordConfirmForm token={token} />
     </div>
   )
 }
