@@ -1,6 +1,5 @@
 import { getCurrentSession } from '@/lib/session'
-import LogoutButton from '@/components/auth/LogoutButton'
-import Link from 'next/link'
+import Header from '@/components/layout/header'
 
 export const metadata = {
   title: 'Next.js',
@@ -13,18 +12,11 @@ export default async function HomeLayout({
   children: React.ReactNode
 }) {
   const { user } = await getCurrentSession()
+  console.log(user)
   return (
     <>
-      <header className="h-20">
-        {user ? (
-          <LogoutButton>Logout</LogoutButton>
-        ) : (
-          <Link className="p-4 bg-slate-300" href="/login">
-            Login Here
-          </Link>
-        )}
-      </header>
-      {children}
+      <Header user={user ? { givenName: user.givenName, id: user.id } : user} />
+      <div>{children}</div>
     </>
   )
 }

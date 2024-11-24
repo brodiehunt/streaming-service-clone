@@ -15,6 +15,8 @@ const config: Config = {
         tertiaryLight: '#414649',
         primaryButtonColor: 'linearGradient(180deb,#02dae6 0%,#00beff 100%)',
         almostWhite: '#ecf0f1',
+        almostBlack: '#111619',
+        darkGreyTransparent: 'rgba(65, 70, 73, .8)',
       },
     },
   },
