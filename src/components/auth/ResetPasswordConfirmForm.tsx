@@ -9,6 +9,7 @@ import FormButton from './FormButton'
 
 import { useState } from 'react'
 import ServerErrorNotification from './ServerErrorNotification'
+import { resetPasswordConfirm } from '@/app/reset-password-confirm/resetPasswordConfirm.action'
 
 type ResetPasswordForm = z.infer<typeof resetPasswordSchema>
 
@@ -24,7 +25,24 @@ const ResetPasswordConfirmForm: React.FC<{ token: string | string[] }> = ({
 
   console.log(token)
   const handleResetPassword: SubmitHandler<ResetPasswordForm> = async data => {
-    console.log('Working as expected...', data)
+    if (typeof token !== 'string') {
+      return setServerError('Could not reset password')
+    }
+    setServerError('')
+
+    try {
+      const resetPasswordInfo = { ...data, token }
+
+      const response = await resetPasswordConfirm(resetPasswordInfo)
+
+      if (typeof response === 'undefined') return
+
+      if (!response.success) {
+        setServerError(response.message)
+      }
+    } catch {
+      setServerError('Could not reset your password. Try later')
+    }
   }
 
   return (
