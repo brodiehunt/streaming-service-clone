@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import StyledComponentsRegistry from '@/lib/registry'
-import { getCurrentSession } from '@/lib/session'
-import LogoutButton from '@/components/auth/LogoutButton'
-import Link from 'next/link'
+// import { getCurrentSession } from '@/lib/session'
+// import LogoutButton from '@/components/auth/LogoutButton'
+// import Link from 'next/link'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -27,22 +27,11 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const { user } = await getCurrentSession()
-
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="h-20">
-          {user ? (
-            <LogoutButton>Logout</LogoutButton>
-          ) : (
-            <Link className="p-4 bg-slate-300" href="/login">
-              Login Here
-            </Link>
-          )}
-        </header>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>

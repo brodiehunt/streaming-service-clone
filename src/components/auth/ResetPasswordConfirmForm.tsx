@@ -9,7 +9,7 @@ import FormButton from './FormButton'
 
 import { useState } from 'react'
 import ServerErrorNotification from './ServerErrorNotification'
-import { resetPasswordConfirm } from '@/app/reset-password-confirm/resetPasswordConfirm.action'
+import { resetPasswordConfirm } from '@/app/(auth)/reset-password-confirm/resetPasswordConfirm.action'
 
 type ResetPasswordForm = z.infer<typeof resetPasswordSchema>
 
