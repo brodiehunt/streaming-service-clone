@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { emailSchema } from '@/lib/zodSchemas'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { checkUserExists } from '@/app/login/checkUserExists.action'
+import { checkUserExists } from '@/app/(auth)/login/checkUserExists.action'
 import ServerErrorNotification from './ServerErrorNotification'
 import { useState } from 'react'
 type EmailForm = z.infer<typeof emailSchema>

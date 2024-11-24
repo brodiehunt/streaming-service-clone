@@ -6,12 +6,10 @@ async function getUser() {
 }
 export default async function Home() {
   const users = await getUser()
-  console.log(process.env.DATABASE_URL)
-
+  console.log(users)
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
       <h1>What is changing</h1>
-      <h2>{JSON.stringify(users)}</h2>
     </div>
   )
 }

@@ -9,7 +9,7 @@ import { emailSchema } from '@/lib/zodSchemas'
 import { useForm } from 'react-hook-form'
 import Link from 'next/link'
 import { useState } from 'react'
-import { sendResetPassword } from '@/app/reset-password/resetPassword.action'
+import { sendResetPassword } from '@/app/(auth)/reset-password/resetPassword.action'
 import ServerErrorNotification from './ServerErrorNotification'
 import ServerSuccessNotification from './ServerSuccessNotification'
 

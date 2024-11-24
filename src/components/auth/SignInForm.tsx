@@ -9,7 +9,7 @@ import { signinSchema } from '@/lib/zodSchemas'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useState } from 'react'
 import ServerErrorNotification from './ServerErrorNotification'
-import { signin } from '@/app/login-with-password/login.action'
+import { signin } from '@/app/(auth)/login-with-password/login.action'
 
 type SigninForm = z.infer<typeof signinSchema>
 
