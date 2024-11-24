@@ -10,6 +10,7 @@
     "prettier:check": "prettier --check \"./**/*.{js,ts,jsx,tsx,json}\"",
     "prettier:write": "prettier --write \"./**/*.{js,ts,jsx,tsx,json}\"",
     "prepare": "husky",
+    "db:seed": "node ./src/seed/seedDB.js",
     "test": "jest"
   },
   "dependencies": {

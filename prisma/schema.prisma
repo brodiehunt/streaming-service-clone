@@ -13,6 +13,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// User Model
+// Represents a registered user in the application
+// - Stores authentication and personal information
+// - Links to user sessions for authentication state
+// - Contains relations to watch history and favorite shows
+// - Manages password reset functionality through tokens
 model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
@@ -22,8 +28,16 @@ model User {
   passwordResetToken String?
   tokenExpiresAt DateTime?
   sessions Session[]
+
+  watchHistories WatchHistory[]
+  favoriteShows     FavoriteShow[]
 }
 
+// Session Model
+// Manages active user sessions for authentication
+// - Each session has an expiry time
+// - Sessions are automatically deleted when user is deleted (onDelete: Cascade)
+// - Used for maintaining user login state
 model Session {
   id String @id
   userId Int
@@ -31,3 +45,159 @@ model Session {
 
   user User @relation(references: [id], fields: [userId], onDelete: Cascade)
 }
+
+// Category Model
+// Represents a content category/genre (e.g., Action, Comedy, Drama)
+// - Used for organizing and filtering shows
+// - Contains styling information (hexColor) for UI presentation
+// - Tracks creation and update times for content management
+// - Implements URL-friendly slugs for routing
+model Category {
+  id          Int      @id @default(autoincrement())
+  title       String   @unique
+  slug        String   @unique
+  imageUrl    String
+  hexColor    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  shows       ShowsOnCategories[]
+}
+
+// Show Model
+// Primary content model representing a TV show or series
+// - Contains basic show information and metadata
+// - Manages relationships with categories, seasons, and user interactions
+// - Uses slugs for SEO-friendly URLs
+// - Includes both hero image (large format) and thumbnail (for cards/lists)
+// - Tracks total number of seasons for quick reference
+model Show {
+  id           Int      @id @default(autoincrement())
+  title        String
+  slug         String   @unique
+  description  String
+  heroImage    String
+  thumbnail    String
+  rating       String
+  totalSeasons Int      @default(1)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  categories   ShowsOnCategories[]
+  seasons      Season[]
+  watchHistories WatchHistory[]
+  favoriteShows  FavoriteShow[]
+
+  @@index([slug])
+}
+
+// ShowsOnCategories Model
+// Junction table managing many-to-many relationship between Shows and Categories
+// - Enables shows to belong to multiple categories
+// - Enables categories to contain multiple shows
+// - Includes indexes for efficient querying from both directions
+model ShowsOnCategories {
+  show       Show     @relation(fields: [showId], references: [id])
+  showId     Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+  
+  @@id([showId, categoryId])
+  @@index([categoryId])
+  @@index([showId])
+}
+
+// Season Model
+// Represents a season of a show
+// - Contains season-specific information
+// - Links to parent show and child episodes
+// - Ensures unique season numbers within a show
+// - Tracks creation and modification dates
+// - Maintains watch history at season level
+model Season {
+  id            Int       @id @default(autoincrement())
+  seasonNumber  Int
+  description   String
+  show          Show      @relation(fields: [showId], references: [id])
+  showId        Int
+  episodes      Episode[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  watchHistory WatchHistory[]
+  
+  @@unique([showId, seasonNumber])
+  @@index([showId])
+}
+
+// Episode Model
+// Represents an individual episode within a season
+// - Contains episode metadata and content information
+// - Links to parent season
+// - Stores duration and video information
+// - Ensures unique episode numbers within a season
+// - Tracks watch history at episode level
+model Episode {
+  id            Int      @id @default(autoincrement())
+  episodeNumber Int
+  title         String
+  description   String
+  thumbnailUrl  String
+  duration      Int      // Duration in minutes
+  videoUrl      String?  // Optional for future implementation
+  season        Season   @relation(fields: [seasonId], references: [id])
+  seasonId      Int
+  watchHistory WatchHistory[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([seasonId, episodeNumber])
+  @@index([seasonId])
+}
+
+// WatchHistory Model
+// Tracks user viewing progress and history
+// - Records which episodes users have watched
+// - Maintains progress percentage for resume functionality
+// - Links to show, season, and episode for hierarchical tracking
+// - Includes timestamps for sorting and "Continue Watching" features
+// - Prevents duplicate entries with unique constraint
+model WatchHistory {
+  id            Int       @id @default(autoincrement())
+  user          User      @relation(fields: [userId], references: [id])
+  userId        Int
+  show          Show      @relation(fields: [showId], references: [id])
+  showId        Int
+  season        Season    @relation(fields: [seasonId], references: [id])
+  seasonId      Int
+  episode       Episode   @relation(fields: [episodeId], references: [id])
+  episodeId     Int
+  progress      Float?    
+  lastWatchedAt DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([userId, episodeId])
+  @@index([userId, showId])
+  @@index([userId, seasonId])
+  @@index([lastWatchedAt])
+}
+
+// FavoriteShow Model
+// Manages user's manually favorited shows
+// - Creates many-to-many relationship between users and their favorite shows
+// - Includes timestamp for sorting favorites by when they were added
+// - Prevents duplicate favorites through compound primary key
+// - Includes indexes for efficient querying of user's favorites
+model FavoriteShow {
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  show      Show     @relation(fields: [showId], references: [id])
+  showId    Int
+  createdAt DateTime @default(now())
+
+  @@id([userId, showId])
+  @@index([userId])
+  @@index([showId])
+}
+
+
+
+
