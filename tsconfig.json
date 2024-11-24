@@ -21,6 +21,14 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/seed/seedDB.js",
+    "src/seed/categoriesData.js",
+    "src/seed/gameOfThronesData.js"
+  ],
   "exclude": ["node_modules"]
 }
