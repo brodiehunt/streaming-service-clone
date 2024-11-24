@@ -9,7 +9,7 @@ import FormButton from './FormButton'
 import Link from 'next/link'
 import { useState } from 'react'
 import ServerErrorNotification from './ServerErrorNotification'
-import { signup } from '@/app/signup/signup.action'
+import { signup } from '@/app/(auth)/signup/signup.action'
 
 type SignupForm = z.infer<typeof signupSchema>
 export default function SignUpForm() {
