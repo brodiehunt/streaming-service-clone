@@ -82,11 +82,11 @@ const HeroInfoComponent: React.FC<{ show: ShowWithCategories }> = async ({
 }) => {
   return (
     <div className="absolute bottom-[2rem] left-0 w-full px-layout-x-large md:bottom-[50%] md:translate-y-[50%]">
-      <div className="flex flex-col items-start md:max-w-[450px]">
+      <div className="flex flex-col items-center md:items-start md:max-w-[450px]">
         <h2 className="font-bold text-4xl mb-4 text-center md:text-left md:max-w-[400px] md:text-6xl">
           {show.title}
         </h2>
-        <div className="mb-2 font-semibold flex gap-2 items-center md:text-xl md:mb-4">
+        <div className="mb-2 font-semibold flex flex-wrap justify-center md:justify-start gap-2 items-center md:text-xl md:mb-4">
           {show.categories.map((category, index) => {
             return (
               <span key={`${show.id}-${category.category.title}`}>
