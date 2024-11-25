@@ -1,3 +1,4 @@
+import HomeHero from '@/components/ui/homepage/Hero'
 import prisma from '@/lib/prisma'
 
 async function getUser() {
@@ -9,7 +10,7 @@ export default async function Home() {
   console.log(users)
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
-      <h1>What is changing</h1>
+      <HomeHero />
     </div>
   )
 }
