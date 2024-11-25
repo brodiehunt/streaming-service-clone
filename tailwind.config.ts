@@ -11,6 +11,10 @@ const config: Config = {
       padding: {
         'layout-x-large': '9vw',
       },
+      backgroundImage: {
+        'gradient-black-bezier':
+          'linear-gradient(to bottom, var(--gradient-black-bezier))',
+      },
       colors: {
         background: '#111619',
         textlight: 'ECF0F1',
