@@ -11,6 +11,16 @@ const config: Config = {
       padding: {
         'layout-x-large': '9vw',
       },
+      backgroundImage: {
+        'gradient-black-bezier':
+          'linear-gradient(to bottom, var(--gradient-black-bezier))',
+        'black-bezier-to-top':
+          'linear-gradient(to top, var(--gradient-black-bezier))',
+        'black-bezier-merged': `
+          linear-gradient(to top, var(--gradient-black-bezier)),
+          linear-gradient(to right, var(--gradient-black-bezier))
+        `,
+      },
       colors: {
         background: '#111619',
         textlight: 'ECF0F1',
@@ -20,6 +30,7 @@ const config: Config = {
         almostWhite: '#ecf0f1',
         almostBlack: '#111619',
         darkGreyTransparent: 'rgba(65, 70, 73, .8)',
+
         'layout-padding-x': '9vw',
         'dark-turquoise': '#02c7e1',
         'dark-turquoise-hover': '#02e1d6',

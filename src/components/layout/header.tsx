@@ -21,7 +21,7 @@ const Header: React.FC<{ user: { givenName: string; id: number } | null }> = ({
   const [menuOpen, setMenuOpen] = useState(false)
   console.log(menuOpen)
   return (
-    <header className="w-full p-4 absolute top-0 left-0 flex items-center justify-between xl:px-[64px] xl:py-[32px] xl:justify-start">
+    <header className="w-full p-4 absolute top-0 left-0 flex items-center justify-between xl:px-[64px] xl:py-[32px] xl:justify-start z-50">
       <div className="xl:hidden">
         <button
           onClick={() => setMenuOpen(isOpen => !isOpen)}
@@ -205,6 +205,12 @@ const DropdownNavItem: React.FC<{
     >
       {children}
     </Link>
+  )
+}
+
+export const HeaderGradient = () => {
+  return (
+    <div className="fixed inset-0 h-60 bg-gradient-black-bezier bg-no-repeat bg-cover pointer-events-none z-40"></div>
   )
 }
 
