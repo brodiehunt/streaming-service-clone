@@ -1,6 +1,7 @@
 import { getCurrentSession } from '@/lib/session'
 import Header, { HeaderGradient } from '@/components/layout/header'
 import Footer from '@/components/layout/footer'
+import { Provider } from 'jotai'
 
 export const metadata = {
   title: 'Next.js',
@@ -16,10 +17,16 @@ export default async function HomeLayout({
   console.log(user)
   return (
     <div className="flex flex-col min-h-[100svh]">
-      <HeaderGradient />
-      <Header user={user ? { givenName: user.givenName, id: user.id } : user} />
-      <main className="relative z-10">{children}</main>
-      <Footer user={user ? { givenName: user.givenName, id: user.id } : user} />
+      <Provider>
+        <HeaderGradient />
+        <Header
+          user={user ? { givenName: user.givenName, id: user.id } : user}
+        />
+        <main className="relative z-10">{children}</main>
+        <Footer
+          user={user ? { givenName: user.givenName, id: user.id } : user}
+        />
+      </Provider>
     </div>
   )
 }
