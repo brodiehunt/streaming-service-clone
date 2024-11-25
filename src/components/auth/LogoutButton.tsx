@@ -20,7 +20,10 @@ const LogoutButton: React.FC<{ children: React.ReactNode }> = ({
   }
 
   return (
-    <button className="p-4 bg-slate-300" onClick={handleLogout}>
+    <button
+      className="pl-0 p-3 text-sm  font-semibold text-light-grey hover:text-nine"
+      onClick={handleLogout}
+    >
       {children}
     </button>
   )
