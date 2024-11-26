@@ -1,3 +1,4 @@
+import CategoryButtonsWrapper from '@/components/ui/homepage/CategoryButtonsWrapper'
 import HomeHero from '@/components/ui/homepage/Hero'
 import prisma from '@/lib/prisma'
 
@@ -11,6 +12,9 @@ export default async function Home() {
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
       <HomeHero />
+      <section className="px-layout-x-large relative md:mt-[-100px]">
+        <CategoryButtonsWrapper />
+      </section>
     </div>
   )
 }

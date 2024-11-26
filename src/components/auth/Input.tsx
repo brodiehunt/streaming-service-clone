@@ -22,7 +22,7 @@ const InputField = styled.input<{ $errorStyle?: boolean }>`
   transition-duration: 200ms;
   border-color: ${props =>
     props.$errorStyle ? 'rgb(220 38 38)' : 'rgb(218, 218, 218)'};
-
+  color: var(--almost-black);
   &:focus {
     outline: none;
     border-color: ${props =>

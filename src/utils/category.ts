@@ -1,6 +1,7 @@
 import prisma from '@/lib/prisma'
 import { Category } from '@prisma/client'
-type CategoryButton = {
+
+export type CategoryButton = {
   id: number
   slug: string
   title: string
@@ -11,7 +12,8 @@ export const getCategoriesTitleAndSlug = async ({
 }: {
   userId: number | null
 }): Promise<CategoryButton[] | null> => {
-  console.log(userId)
+  // User Id will be used to get 'continue watching' and 'for you' lists??
+  console.log(userId, 'The user Id - getCategoriesTitleAndSlug')
   try {
     const categories = await prisma.category.findMany({
       select: {
