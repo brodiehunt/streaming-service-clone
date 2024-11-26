@@ -30,6 +30,3 @@ export default async function HomeLayout({
     </div>
   )
 }
-
-// Header height for later reference
-// mt-[80px] xl:mt-[112px]

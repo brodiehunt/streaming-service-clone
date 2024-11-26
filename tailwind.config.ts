@@ -32,8 +32,7 @@ const config: Config = {
         almostWhite: '#ecf0f1',
         almostBlack: '#111619',
         darkGreyTransparent: 'rgba(65, 70, 73, .8)',
-
-        'layout-padding-x': '9vw',
+        'category-button-bg': 'rgba(17, 22, 25, .7)',
         'dark-turquoise': '#02c7e1',
         'dark-turquoise-hover': '#02e1d6',
         'player-button-hover-blue': '#22b1ff',

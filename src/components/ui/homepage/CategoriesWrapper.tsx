@@ -13,7 +13,7 @@ const CategoriesWrapper = async () => {
 
   return (
     <div className="pb-4">
-      <section className="py-2 relative scroll-smooth">
+      <section className="py-2 sticky top-[80px] xl:top-[112px] topscroll-smooth z-30">
         <CategoryButtons categories={categories} />
       </section>
       <>
@@ -31,5 +31,6 @@ const CategoriesWrapper = async () => {
     </div>
   )
 }
+// mt-[80px] xl:mt-[112px]
 
 export default CategoriesWrapper
