@@ -2,7 +2,7 @@ import { getCurrentSession } from '@/lib/session'
 import CategoryButtons from './CategoryButtons'
 import { getCategoriesTitleAndSlug } from '@/utils/category'
 
-const CategoryButtonsWrapper = async () => {
+const CategoriesWrapper = async () => {
   const { user } = await getCurrentSession()
   const categories = await getCategoriesTitleAndSlug({
     userId: user?.id ?? null,
@@ -10,10 +10,12 @@ const CategoryButtonsWrapper = async () => {
   console.log(categories)
   if (!categories) return null
   return (
-    <section className="py-2 relative">
-      <CategoryButtons categories={categories} />
-    </section>
+    <>
+      <section className="py-2 relative">
+        <CategoryButtons categories={categories} />
+      </section>
+    </>
   )
 }
 
-export default CategoryButtonsWrapper
+export default CategoriesWrapper
