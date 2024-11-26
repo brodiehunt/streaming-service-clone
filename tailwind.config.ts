@@ -20,6 +20,8 @@ const config: Config = {
           linear-gradient(to top, var(--gradient-black-bezier)),
           linear-gradient(to right, var(--gradient-black-bezier))
         `,
+        'black-bezier-to-top-right':
+          'linear-gradient(to top right, var(--gradient-black-bezier))',
       },
       colors: {
         background: '#111619',
