@@ -21,7 +21,7 @@ const Header: React.FC<{ user: { givenName: string; id: number } | null }> = ({
   const [menuOpen, setMenuOpen] = useState(false)
   console.log(menuOpen)
   return (
-    <header className="w-full p-4 absolute top-0 left-0 flex items-center justify-between xl:px-[64px] xl:py-[32px] xl:justify-start z-50">
+    <header className="w-full p-4 sticky mb-[-80px] xl:mb-[-112px] top-0 left-0 flex items-center justify-between xl:px-[64px] xl:py-[32px] xl:justify-start z-50">
       <div className="xl:hidden">
         <button
           onClick={() => setMenuOpen(isOpen => !isOpen)}

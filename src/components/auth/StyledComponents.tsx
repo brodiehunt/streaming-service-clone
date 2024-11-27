@@ -11,6 +11,7 @@ export const FormWrapper = styled.div`
   z-index: 2;
   background-color: #fff;
   border-radius: 4px;
+  color: var(--almost-black);
 
   form {
     margin-bottom: 10px;

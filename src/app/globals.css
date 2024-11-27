@@ -3,8 +3,23 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-almost-white;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
@@ -50,6 +65,7 @@
   --gradient-rush-top: #f28723;
   --gradient-rush-bottom: #fc5432;
   --ways-to-watch-background-color: #101e26;
+  --category-button-background: rgba(17, 22, 25, 0.7);
   --gradient-black-bezier: #111618 0%, rgba(17, 22, 24, 0.938) 9.7%,
     rgba(17, 22, 24, 0.904) 17.7%, rgba(17, 22, 24, 0.851) 24.3%,
     rgba(17, 22, 24, 0.783) 29.9%, rgba(17, 22, 24, 0.704) 34.6%,

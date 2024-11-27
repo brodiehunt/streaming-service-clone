@@ -16,7 +16,7 @@ export default async function HomeLayout({
   const { user } = await getCurrentSession()
   console.log(user)
   return (
-    <div className="flex flex-col min-h-[100svh]">
+    <div className="flex flex-col relative">
       <Provider>
         <HeaderGradient />
         <Header
@@ -30,6 +30,3 @@ export default async function HomeLayout({
     </div>
   )
 }
-
-// Header height for later reference
-// mt-[80px] xl:mt-[112px]
