@@ -3,10 +3,13 @@ import { CategoryButton } from '@/utils/category'
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa'
 import Link from 'next/link'
 import { useRef, useState, useEffect } from 'react'
+import { theVisibleCategory } from '@/lib/atom'
+import { useAtom } from 'jotai'
 
 const CategoryButtons: React.FC<{ categories: CategoryButton[] }> = ({
   categories,
 }) => {
+  const [visibleCategory] = useAtom(theVisibleCategory)
   const navContainerRef = useRef<HTMLElement | null>(null)
   const [scrollPosition, setScrollPosition] = useState(0)
   const [, forceRender] = useState({})
@@ -18,6 +21,7 @@ const CategoryButtons: React.FC<{ categories: CategoryButton[] }> = ({
     setScrollPosition(navContainerRef.current?.scrollLeft || 0)
   }
 
+  console.log('The visible cateogry', visibleCategory)
   return (
     <div className="relative">
       <nav

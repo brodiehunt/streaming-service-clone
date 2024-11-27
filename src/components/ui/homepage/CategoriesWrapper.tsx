@@ -13,7 +13,7 @@ const CategoriesWrapper = async () => {
 
   return (
     <div className="pb-4">
-      <section className="py-2 sticky top-[80px] xl:top-[112px] topscroll-smooth z-30">
+      <section className="py-2 sticky z-40 top-[80px] xl:top-[112px] topscroll-smooth ">
         <CategoryButtons categories={categories} />
       </section>
       <>

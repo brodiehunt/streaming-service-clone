@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
       <HomeHero />
-      <section className="px-layout-x-large relative md:mt-[-100px]">
+      <section className="px-layout-x-large relative z-30 md:mt-[-100px]">
         <CategoriesWrapper />
       </section>
     </div>

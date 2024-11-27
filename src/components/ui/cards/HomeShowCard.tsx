@@ -24,7 +24,7 @@ const HomeShowCard: React.FC<{ show: Show }> = ({ show }) => {
           {show.totalSeasons} {show.totalSeasons > 1 ? 'Seasons' : 'Season'}
         </p>
       </Link>
-      <div className="absolute w-[150%] max-w-[450px] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-dark-grey rounded-lg p-8 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-500 delay-400">
+      <div className="hidden sm:block absolute w-[150%] max-w-[450px] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-dark-grey rounded-lg p-8 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-500 group-hover:delay-700">
         <h3 className="text-2xl w-[80%] mb-12 font-semibold">{show.title}</h3>
         <p className="flex items-center gap-2">
           <span className="text-xs font-bold rounded  text-nine">

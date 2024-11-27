@@ -51,7 +51,7 @@ export default async function ShowHero() {
 
   console.log(data)
   return (
-    <section className="h-[100svh] md:h-[auto] relative">
+    <section className="h-[100svh] md:h-[auto] relative z-30">
       <HeroImageComponent thumbnail={data.thumbnail} title={data.title} />
       <HeroInfoComponent show={data} />
     </section>
