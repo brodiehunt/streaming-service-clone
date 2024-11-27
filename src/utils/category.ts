@@ -41,6 +41,7 @@ export const getCategoryBySlug = async (
   slug: string,
 ): Promise<Category | null> => {
   try {
+    console.log('What is the slug?', slug)
     const category = await prisma.category.findUnique({
       where: { slug },
     })
