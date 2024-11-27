@@ -3581,6 +3581,443 @@ const thirteenReasonsWhyShow = {
   ],
 }
 
+const daredevilCategories = ['Action & Adventure']
+
+const daredevilShow = {
+  title: 'Daredevil',
+  slug: 'daredevil',
+  description:
+    "Blinded as a young boy, Matt Murdock fights injustice by day as a lawyer and by night as the Super Hero Daredevil in Hell's Kitchen, New York City.",
+  heroImage: '/images/shows/daredevil.webp',
+  thumbnail: '/images/shows/daredevil.webp',
+  rating: 'TV-MA',
+  totalSeasons: 1,
+  seasons: [
+    {
+      seasonNumber: 1,
+      description:
+        "As a new threat to Hell's Kitchen emerges, Matt Murdock must choose between his duty as a lawyer and his destiny as a vigilante.",
+      episodes: [
+        {
+          episodeNumber: 1,
+          title: 'Into the Ring',
+          description:
+            "Lawyer-by-day Matt Murdock uses his heightened senses from being blinded as a young boy to fight crime at night on the streets of Hell's Kitchen.",
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 53,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 2,
+          title: 'Cut Man',
+          description:
+            "Murdock tracks a young boy's kidnapper, Wilson Fisk makes moves to topple Hell's Kitchen's criminal organizations.",
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 52,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 3,
+          title: 'Rabbit in a Snowstorm',
+          description:
+            'Matt takes on a case defending a murderer who claims he was brainwashed into killing his victim.',
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 55,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 4,
+          title: 'In the Blood',
+          description:
+            'Two vicious Russian brothers working for Fisk strike back against Daredevil. Foggy and Karen struggle to help Elena Cardenas.',
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 54,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 5,
+          title: 'World on Fire',
+          description:
+            "Fisk moves forward with plans that threaten to rip Hell's Kitchen apart. Murdock and Foggy take on a case helping tenants victimized by a slumlord.",
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 51,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 6,
+          title: 'Condemned',
+          description:
+            'Trapped face-to-face with Fisk, Murdock learns the true cost of taking the law into his own hands.',
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 49,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 7,
+          title: 'Stick',
+          description:
+            'An old mentor visits Matt Murdock. Meanwhile, Karen uncovers shocking information about the Kingpin.',
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 50,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 8,
+          title: 'Shadows in the Glass',
+          description:
+            'While Murdock, Foggy and Karens mission becomes clearer, Fisks world spins further out of control in his battle for Hells Kitchen.',
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 54,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 9,
+          title: 'Speak of the Devil',
+          description:
+            'When Fisk gains the upper hand, the goal to destroy him becomes even more difficult, while Daredevil faces his own demons.',
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 53,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 10,
+          title: 'Nelson v. Murdock',
+          description:
+            "Murdock and Foggy's relationship is put to the ultimate test while a new enemy against Fisk emerges.",
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 52,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 11,
+          title: 'The Path of the Righteous',
+          description:
+            'Fisk and Murdock wrestle with the consequences of their chosen paths, while Ben Urich digs closer to the truth.',
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 54,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 12,
+          title: 'The Ones We Leave Behind',
+          description:
+            'Fisk seeks revenge while Karen is haunted by recent events. Murdock makes a startling discovery about Fisks financing.',
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 51,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 13,
+          title: 'Daredevil',
+          description:
+            'In the season finale, a boxed-in Fisk and a desperate Murdock, Foggy and Karen are forced to play their end games.',
+          thumbnailUrl: '/images/shows/daredevil.webp',
+          duration: 55,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+      ],
+    },
+  ],
+}
+
+const punisherCategories = ['Action & Adventure']
+const punisherShow = {
+  title: 'The Punisher',
+  slug: 'the-punisher',
+  description:
+    "After exacting revenge on those responsible for the death of his wife and children, Frank Castle uncovers a conspiracy that runs far deeper than New York's criminal underworld.",
+  heroImage: '/images/shows/the-punisher.webp',
+  thumbnail: '/images/shows/the-punisher.webp',
+  rating: 'TV-MA',
+  totalSeasons: 1,
+  seasons: [
+    {
+      seasonNumber: 1,
+      description:
+        'After the murder of his family, Marine veteran Frank Castle becomes the vigilante known as "The Punisher," with only one goal in mind: to avenge them.',
+      episodes: [
+        {
+          episodeNumber: 1,
+          title: '3 AM',
+          description:
+            'Frank Castle, known throughout New York City as "the Punisher" after exacting revenge on those responsible for the death of his family, uncovers a larger conspiracy beyond what was done to him and his family.',
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 55,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 2,
+          title: 'Two Dead Men',
+          description:
+            'Frank learns about a possible conspiracy involving his former commanding officer while Karen pursues a story about a mysterious death.',
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 54,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 3,
+          title: 'Kandahar',
+          description:
+            "Frank skips the subtlety while interrogating Micro. Brutal memories of top-secret missions shed light on Frank's past.",
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 52,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 4,
+          title: 'Resupply',
+          description:
+            'Micro goes undercover to learn more about a potential new threat. Frank and Micro spar over how to handle their next move.',
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 51,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 5,
+          title: 'Gunner',
+          description:
+            'Frank and Micro go looking for answers from a reluctant witness. Madani and Sam learn of a looming investigation. Rawlins sees a ghost.',
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 53,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 6,
+          title: 'The Judas Goat',
+          description:
+            'With Frank in bad shape, Micro calls on Curtis for help. Madani and Russo continue to mix business with pleasure.',
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 54,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 7,
+          title: 'Crosshairs',
+          description:
+            'Lewis struggles with the ramifications of his actions. Frank and Micro pursue another face from the past. Madani and Sam go bug hunting.',
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 50,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 8,
+          title: 'Cold Steel',
+          description:
+            'Russo opens up to Madani about his past, Sarah shares her concerns about her son with Frank, and a mission to draw out a ghost from the past takes an unexpected turn.',
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 52,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 9,
+          title: 'Front Toward Enemy',
+          description:
+            "Following a deadly explosion, Karen lands in a bomber's crosshairs -- and Frank isn't happy about it. Meanwhile, Curtis makes a disturbing discovery.",
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 53,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 10,
+          title: 'Virtue of the Vicious',
+          description:
+            'An attack on a high-profile politician is examined (and reexamined) through different perspectives. Madani faces a painful truth.',
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 51,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 11,
+          title: 'Danger Close',
+          description:
+            "As danger knocks on Sarah's door, Frank takes his quest for vengeance to the next level with some help from an unexpected ally.",
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 55,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 12,
+          title: 'Home',
+          description:
+            'Frank makes a damning confession. A shootout leaves Sarah wondering what to believe. Rawlins goes in for the kill, once and for all.',
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 54,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 13,
+          title: 'Memento Mori',
+          description:
+            'As the authorities close in, an exhausted but determined Frank returns to the compound where his journey began.',
+          thumbnailUrl: '/images/shows/the-punisher.webp',
+          duration: 56,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+      ],
+    },
+  ],
+}
+
+const greysAnatomyCategories = ['Medical']
+
+const greysAnatomyShow = {
+  title: "Grey's Anatomy",
+  slug: 'greys-anatomy',
+  description:
+    'Follow Meredith Grey and the team of doctors at Grey Sloan Memorial who face life-or-death decisions on a daily basis. They seek comfort from one another, and, at times, more than just friendship.',
+  heroImage: '/images/shows/greys-anatomy.webp',
+  thumbnail: '/images/shows/greys-anatomy.webp',
+  rating: 'TV-14',
+  totalSeasons: 1,
+  seasons: [
+    {
+      seasonNumber: 1,
+      description:
+        'Follow five surgical interns at Seattle Grace Hospital as they begin their medical careers and face the challenges of balancing their personal lives with the demands of their training.',
+      episodes: [
+        {
+          episodeNumber: 1,
+          title: "A Hard Day's Night",
+          description:
+            'Meredith Grey begins her first day as a surgical intern at Seattle Grace Hospital, where she meets her fellow interns and faces her first 48-hour shift.',
+          thumbnailUrl: '/images/shows/greys-anatomy.webp',
+          duration: 45,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 2,
+          title: 'The First Cut Is the Deepest',
+          description:
+            "Meredith looks after a rape victim, while George tends to a patient who swallowed his girlfriend's engagement ring.",
+          thumbnailUrl: '/images/shows/greys-anatomy.webp',
+          duration: 43,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+      ],
+    },
+  ],
+}
+
+const theGoodDoctorCategories = ['Medical']
+
+const theGoodDoctorShow = {
+  title: 'The Good Doctor',
+  slug: 'the-good-doctor',
+  description:
+    "Shaun Murphy, a young surgeon with autism and savant syndrome, relocates from a quiet country life to join a prestigious hospital's surgical unit.",
+  heroImage: '/images/shows/the-good-doctor.webp',
+  thumbnail: '/images/shows/the-good-doctor.webp',
+  rating: 'TV-14',
+  totalSeasons: 1,
+  seasons: [
+    {
+      seasonNumber: 1,
+      description:
+        'Dr. Shaun Murphy joins San Jose St. Bonaventure Hospital and must prove to his colleagues that his extraordinary medical gifts can save lives.',
+      episodes: [
+        {
+          episodeNumber: 1,
+          title: 'Burnt Food',
+          description:
+            'Dr. Shaun Murphy relocates to San Jose to join the surgical unit at St. Bonaventure Hospital, where he faces skepticism from his new colleagues.',
+          thumbnailUrl: '/images/shows/the-good-doctor.webp',
+          duration: 43,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 2,
+          title: 'Mount Rushmore',
+          description:
+            'Shaun struggles with his first surgery while also dealing with new social challenges at the hospital.',
+          thumbnailUrl: '/images/shows/the-good-doctor.webp',
+          duration: 43,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+      ],
+    },
+  ],
+}
+
+const erCategories = ['Medical']
+
+const erShow = {
+  title: 'ER',
+  slug: 'er',
+  description:
+    "The lives, loves and losses of the doctors and nurses of Chicago's County General Hospital.",
+  heroImage: '/images/shows/er.webp',
+  thumbnail: '/images/shows/er.webp',
+  rating: 'TV-14',
+  totalSeasons: 1,
+  seasons: [
+    {
+      seasonNumber: 1,
+      description:
+        "Follow the intense day-to-day lives of emergency room staff at Chicago's County General Hospital as they face life-and-death decisions.",
+      episodes: [
+        {
+          episodeNumber: 1,
+          title: '24 Hours',
+          description:
+            "Third-year medical student John Carter begins his first day in the ER under Dr. Benton's supervision, while Dr. Greene deals with a personal crisis.",
+          thumbnailUrl: '/images/shows/er.webp',
+          duration: 48,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 2,
+          title: 'Day One',
+          description:
+            'Dr. Lewis treats a pregnant woman with a high-risk delivery, while Carter continues to adjust to the fast pace of the ER.',
+          thumbnailUrl: '/images/shows/er.webp',
+          duration: 48,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+      ],
+    },
+  ],
+}
+
+const chicagoMedCategories = ['Medical']
+
+const chicagoMedShow = {
+  title: 'Chicago Med',
+  slug: 'chicago-med',
+  description:
+    "The emergency department doctors and nurses of Chicago's state-of-the-art trauma center take on critical medical cases and challenging ethical dilemmas.",
+  heroImage: '/images/shows/chicago-med.webp',
+  thumbnail: '/images/shows/chicago-med.webp',
+  rating: 'TV-14',
+  totalSeasons: 1,
+  seasons: [
+    {
+      seasonNumber: 1,
+      description:
+        'The team at Chicago Med deals with unique cases while navigating their personal relationships and the politics of running a major hospital.',
+      episodes: [
+        {
+          episodeNumber: 1,
+          title: 'Derailed',
+          description:
+            'The Chicago Med team deals with victims of a massive train derailment, testing the limits of their new state-of-the-art facility.',
+          thumbnailUrl: '/images/shows/chicago-med.webp',
+          duration: 43,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+        {
+          episodeNumber: 2,
+          title: 'iNO',
+          description:
+            'Dr. Rhodes second-guesses his decision to remove a dying man from the heart transplant list, while Dr. Charles tries to help a young woman cope with mental illness.',
+          thumbnailUrl: '/images/shows/chicago-med.webp',
+          duration: 43,
+          videoUrl: '/videos/shows/example-vid.mp4',
+        },
+      ],
+    },
+  ],
+}
+
 export const showsData = [
   {
     categories: gameOfThronesCategories,
@@ -3685,5 +4122,29 @@ export const showsData = [
   {
     categories: thirteenReasonsWhyCategories,
     show: thirteenReasonsWhyShow,
+  },
+  {
+    categories: daredevilCategories,
+    show: daredevilShow,
+  },
+  {
+    categories: punisherCategories,
+    show: punisherShow,
+  },
+  {
+    categories: greysAnatomyCategories,
+    show: greysAnatomyShow,
+  },
+  {
+    categories: theGoodDoctorCategories,
+    show: theGoodDoctorShow,
+  },
+  {
+    categories: erCategories,
+    show: erShow,
+  },
+  {
+    categories: chicagoMedCategories,
+    show: chicagoMedShow,
   },
 ]
