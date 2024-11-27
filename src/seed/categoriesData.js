@@ -14,7 +14,7 @@ export const categories = [
   {
     title: 'Drama',
     slug: 'drama',
-    imageUrl: '/images/categories/drama.wep',
+    imageUrl: '/images/categories/drama.webp',
     hexColor: '#2196F3', // Deep Blue
   },
   {
