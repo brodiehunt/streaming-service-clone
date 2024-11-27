@@ -30,7 +30,13 @@ const CategoryButtons: React.FC<{ categories: CategoryButton[] }> = ({
         className={`flex flex-nowrap gap-3 overflow-x-scroll scroll-smooth no-scrollbar ${scrollPosition > 0 ? 'm:pl-10 ' : 'ssm:pl-0'}`}
       >
         {categories.map(category => {
-          return <CategoryLinkButton key={category.id} category={category} />
+          return (
+            <CategoryLinkButton
+              isActive={visibleCategory === category.slug}
+              key={category.id}
+              category={category}
+            />
+          )
         })}
       </nav>
       {scrollPosition > 0 && (
@@ -49,12 +55,32 @@ const CategoryButtons: React.FC<{ categories: CategoryButton[] }> = ({
   )
 }
 
-const CategoryLinkButton: React.FC<{ category: CategoryButton }> = ({
-  category,
-}) => {
+const CategoryLinkButton: React.FC<{
+  category: CategoryButton
+  isActive: boolean
+}> = ({ category, isActive }) => {
+  const buttonRef = useRef<HTMLAnchorElement>(null)
+
+  useEffect(() => {
+    if (isActive && buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect()
+      const isOutOfView =
+        rect.left < 0 ||
+        rect.right > (window.innerWidth || document.documentElement.clientWidth)
+
+      if (isOutOfView) {
+        buttonRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center',
+        })
+      }
+    }
+  }, [isActive])
   return (
     <Link
-      className={`block py-2 px-5 rounded-full border-2 flex-shrink-0 text-sm sm:px-6 sm:py-[10px] sm:text-base xl:px-7 xl:py-3 hover:border-almost-white transition-colors transition-duration-200 ${category.title === 'Medical' ? 'bg-dark-turquoise border-dark-turquoise text-almost-black hover:border-nine hover:bg-nine' : 'border-dark-grey bg-category-button-bg'}`}
+      ref={buttonRef}
+      className={`block py-2 px-5 rounded-full border-2 flex-shrink-0 text-sm sm:px-6 sm:py-[10px] sm:text-base xl:px-7 xl:py-3 hover:border-almost-white transition-colors transition-duration-200 ${isActive ? 'bg-dark-turquoise border-dark-turquoise text-almost-black hover:border-nine hover:bg-nine' : 'border-dark-grey bg-category-button-bg'}`}
       href={`#${category.slug}`}
       title={`Scroll to ${category.title} shows`}
     >
