@@ -36,3 +36,16 @@ export const getCategoriesInfo = async (): Promise<Category[] | null> => {
     return null
   }
 }
+
+export const getCategoryBySlug = async (
+  slug: string,
+): Promise<Category | null> => {
+  try {
+    const category = await prisma.category.findUnique({
+      where: { slug },
+    })
+    return category
+  } catch {
+    return null
+  }
+}
