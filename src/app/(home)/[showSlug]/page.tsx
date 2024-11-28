@@ -1,7 +1,7 @@
 // What do I need to do?
 
-import { getShowBySlug } from '@/utils/show'
-
+import { getShowWithCategoriesBySlug } from '@/utils/show'
+import ShowHero from '@/components/ui/heros/ShowHero'
 // 1. Get the content above the fold (Cateogry information)
 // 2. Render the hero (above the fold)
 // 3. Render the episodes for the current season - This defaults to one for now
@@ -12,7 +12,14 @@ export default async function ShowPage({
 }: {
   params: { showSlug: string }
 }) {
-  const show = await getShowBySlug({ slug: params.showSlug })
-  console.log('The show', show)
-  return <div>This is the show page</div>
+  const show = await getShowWithCategoriesBySlug({ slug: params.showSlug })
+
+  // Handle errors and no show here later
+  if (!show) return null
+
+  return (
+    <div>
+      <ShowHero show={show} />
+    </div>
+  )
 }

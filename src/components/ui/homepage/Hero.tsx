@@ -58,10 +58,10 @@ export default async function ShowHero() {
   )
 }
 
-const HeroImageComponent: React.FC<{ thumbnail: string; title: string }> = ({
-  thumbnail,
-  title,
-}) => {
+export const HeroImageComponent: React.FC<{
+  thumbnail: string
+  title: string
+}> = ({ thumbnail, title }) => {
   return (
     <div className="w-full h-[60%] relative md:h-[90vh]">
       <Image
@@ -77,9 +77,9 @@ const HeroImageComponent: React.FC<{ thumbnail: string; title: string }> = ({
   )
 }
 
-const HeroInfoComponent: React.FC<{ show: ShowWithCategories }> = async ({
-  show,
-}) => {
+export const HeroInfoComponent: React.FC<{
+  show: ShowWithCategories
+}> = async ({ show }) => {
   return (
     <div className="absolute bottom-[2rem] left-0 w-full px-layout-x-large md:bottom-[50%] md:translate-y-[50%]">
       <div className="flex flex-col items-center md:items-start md:max-w-[450px]">

@@ -45,3 +45,42 @@ export const getShowBySlug = async ({
     return null
   }
 }
+
+export type ShowWithCategories =
+  | (Show & {
+      categories: {
+        category: {
+          title: string
+        }
+      }[]
+    })
+  | null
+
+export const getShowWithCategoriesBySlug = async ({
+  slug,
+}: {
+  slug: string
+}): Promise<ShowWithCategories> => {
+  try {
+    const show = await prisma.show.findUnique({
+      where: { slug },
+      include: {
+        categories: {
+          include: {
+            category: {
+              select: {
+                title: true,
+              },
+            },
+          },
+        },
+      },
+    })
+
+    if (!show) return null
+
+    return show
+  } catch {
+    return null
+  }
+}
