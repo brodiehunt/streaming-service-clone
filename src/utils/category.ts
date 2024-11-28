@@ -50,3 +50,67 @@ export const getCategoryBySlug = async (
     return null
   }
 }
+
+export async function getCategoryWithShows(slug: string) {
+  try {
+    const categoryWithShows = await prisma.category.findUnique({
+      where: {
+        slug: slug,
+      },
+      include: {
+        shows: {
+          include: {
+            show: {
+              include: {
+                _count: {
+                  select: {
+                    seasons: true,
+                  },
+                },
+                seasons: {
+                  include: {
+                    _count: {
+                      select: { episodes: true },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    })
+
+    if (!categoryWithShows) {
+      throw null
+    }
+
+    // Transform to a cleaner structure
+    const transformedData = {
+      id: categoryWithShows.id,
+      title: categoryWithShows.title,
+      slug: categoryWithShows.slug,
+      imageUrl: categoryWithShows.imageUrl,
+      hexColor: categoryWithShows.hexColor,
+      shows: categoryWithShows.shows.map(({ show }) => ({
+        id: show.id,
+        title: show.title,
+        slug: show.slug,
+        description: show.description,
+        heroImage: show.heroImage,
+        thumbnail: show.thumbnail,
+        rating: show.rating,
+        totalSeasons: show._count.seasons,
+        totalEpisodes: show.seasons.reduce(
+          (sum, season) => sum + season._count.episodes,
+          0,
+        ),
+      })),
+    }
+
+    return transformedData
+  } catch (error) {
+    console.error('Error fetching category with shows:', error)
+    return null
+  }
+}

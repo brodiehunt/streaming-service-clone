@@ -72,9 +72,9 @@ const Navigation: React.FC<{
           />
           Home
         </NavItem>
-        <NavItem href="/sorry-not-built" pathname={pathname}>
+        <NavItem href="/live-tv" pathname={pathname}>
           <BsLightningFill
-            className={`w-[32px] h-[32px] p-1 ml-6 mr-4 rounded-full xl:mr-2 xl:ml-0 ${pathname === '/sorry-not-built' ? 'bg-primaryLight text-almostBlack' : ''}`}
+            className={`w-[32px] h-[32px] p-1 ml-6 mr-4 rounded-full xl:mr-2 xl:ml-0 ${pathname === '/live-tv' ? 'bg-primaryLight text-almostBlack' : ''}`}
           />
           Live TV
         </NavItem>
@@ -86,9 +86,9 @@ const Navigation: React.FC<{
         </NavItem>
       </div>
       <div className="mt-8 flex flex-col xl:flex-row xl:mt-0">
-        <NavItem href="/sorry-not-built" pathname={pathname}>
+        <NavItem href="/connect-your-tv" pathname={pathname}>
           <MdConnectedTv
-            className={`w-[32px] h-[32px] p-1 ml-6 mr-4 rounded-full xl:hidden ${pathname === '/sorry-not-built' ? 'bg-primaryLight text-almostBlack' : ''}`}
+            className={`w-[32px] h-[32px] p-1 ml-6 mr-4 rounded-full xl:hidden ${pathname === '/connect-your-tv' ? 'bg-primaryLight text-almostBlack' : ''}`}
           />
           Connect your TV
         </NavItem>
