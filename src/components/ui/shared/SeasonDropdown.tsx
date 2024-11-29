@@ -10,7 +10,7 @@ const HeroSeasonDropdown: React.FC<{
   seasons: number
 }> = ({ showSlug, seasons }) => {
   const [isOpen, setIsOpen] = useState(false)
-
+  const multipleSeasons = seasons > 1
   return (
     <div className="relative">
       <Button
@@ -19,11 +19,13 @@ const HeroSeasonDropdown: React.FC<{
         onClick={() => setIsOpen(!isOpen)}
       >
         Season 1
-        <FaAngleDown
-          className={`w-4 transition-duration-200 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-        />
+        {multipleSeasons && (
+          <FaAngleDown
+            className={`w-4 transition-duration-200 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          />
+        )}
       </Button>
-      {isOpen && seasons > 1 && (
+      {isOpen && multipleSeasons && (
         <div className="absolute top-[120%] right-0 w-[150px] max-h-[200px] overflow-scroll rounded">
           {Array(seasons)
             .fill(null)

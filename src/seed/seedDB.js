@@ -1,6 +1,7 @@
-import { PrismaClient } from '@prisma/client'
-import { categories } from './categoriesData.js'
-import { showsData } from './gameOfThronesData.js'
+/* eslint-disable @typescript-eslint/no-require-imports */
+const { PrismaClient } = require('@prisma/client')
+const { categories } = require('./categoriesData.js')
+const { showsData } = require('./gameOfThronesData.js')
 
 const prisma = new PrismaClient()
 

@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Streaming service clone Nextjs app
 
-## Getting Started
+A full-stack web application clone of 9Now (Channel 9's streaming service) built with NextJS.
 
-First, run the development server:
+## Techstack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Core
+
+- Nextjs 14
+- React 18
+- Typescript
+- PostgreSQL
+- Prisma ORM
+
+### State Management and forms
+
+- Jotai
+- React Hook Form
+- Zod
+
+### Authentication
+
+- Oslo - Auth utilities
+- bycryptjs - password hashing
+- Resend - Email service for password reset/passwordless login
+
+### Styling
+
+- Styled Components (For client)
+- Tailwind css
+
+### Development and Testing
+
+- Jest
+- React Testing Library
+- ESLint & Prettier
+- Husky and lint-staged - git hooks
+
+## Getting started
+
+### Docker Development (Recommended)
+
+#### Prequisites
+
+- Docker desktop [Get Docker Here](https://www.docker.com/)
+- Node.js 18+
+
+#### Set up
+
+1. Clone this repository
+
+```
+  git clone git@github.com:brodiehunt/streaming-service-clone.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install the dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+  npm i
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Create a .env file in the root directory with the following
 
-## Learn More
+```
+  POSTGRES_USER=postgres
+  POSTGRES_PASSWORD=postgrespassword
+  POSTGRES_DB=nine_now
+  RESEND_API_KEY=your_resend_api_key  (Only required for password reset and passwordless sign in)
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Start the development environment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+  docker compose up --build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. Seed the database
 
-## Deploy on Vercel
+```
+  docker compose exec app npm run db:seed
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Local Development
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Prequisites
+
+- A postgresql db
+- Node.js 18+
+
+#### Set up
+
+1. Clone this repository
+
+```
+  git clone git@github.com:brodiehunt/streaming-service-clone.git
+```
+
+2. Install the dependencies
+
+```
+  npm i
+```
+
+3. Create a .env file in the root directory with the following
+
+```
+  DATABASE_URL=your_local_db_url
+  RESEND_API_KEY=your_resend_api_key  (Only required for password reset and passwordless sign in)
+```
+
+4. Generate the prisma client, run migration and seed the db
+
+```
+  npx prisma generate
+  npx prisma migrate deploy
+  npm run db:seed
+```
+
+5. Start the dev server
+
+```
+  npm run dev
+```
