@@ -1,6 +1,6 @@
 import { getCategoryWithShows } from '@/utils/category'
-import CategoryShowsHero from '@/components/ui/heros/CategoryShowsHero'
 import ShowWithSeasonCard from '@/components/ui/cards/ShowWithSeasonsCard'
+import CategoryShowsHero from '@/components/ui/heros/CategoryShowsHero'
 
 export default async function CategoryShows({
   params,

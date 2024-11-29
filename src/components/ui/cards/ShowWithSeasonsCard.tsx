@@ -19,7 +19,7 @@ const ShowWithSeasonCard: React.FC<{
           width={480}
           height={270}
         />
-        <h2 className="text-xl pt-1 font-bold">{show.title}</h2>
+        <h3 className="text-xl pt-1 font-bold">{show.title}</h3>
         <p className="text-almost-white/80 text-sm">
           {show.totalEpisodes} episodes
         </p>

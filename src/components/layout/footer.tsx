@@ -5,7 +5,7 @@ const Footer: React.FC<{
   user: { givenName: string; id: number } | null
 }> = ({ user }) => {
   return (
-    <footer className="mt-auto">
+    <footer className="mt-auto relative z-40">
       <TopFooter />
       <BottomFooter user={user} />
     </footer>

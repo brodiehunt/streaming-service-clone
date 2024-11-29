@@ -4018,7 +4018,7 @@ const chicagoMedShow = {
   ],
 }
 
-export const showsData = [
+const showsData = [
   {
     categories: gameOfThronesCategories,
     show: gameOfThronesShow,
@@ -4148,3 +4148,5 @@ export const showsData = [
     show: chicagoMedShow,
   },
 ]
+
+module.exports = { showsData }
