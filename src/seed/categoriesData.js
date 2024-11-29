@@ -1,4 +1,4 @@
-export const categories = [
+const categories = [
   {
     title: 'Action & Adventure',
     slug: 'action-adventure',
@@ -120,3 +120,5 @@ export const categories = [
     hexColor: '#1ABC9C', // Turquoise
   },
 ]
+
+module.exports = { categories }
