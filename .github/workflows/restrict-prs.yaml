@@ -16,7 +16,7 @@ jobs:
 
       - name: Check Base Branch
         run: |
-          if [[ "${{ github.event.pull_request.head.ref }}" != "test" ]]; then
-            echo "Pull requests to 'main' are only allowed from 'test'."
+          if [[ "${{ github.event.pull_request.head.ref }}" != "staging" ]]; then
+            echo "Pull requests to 'main' are only allowed from 'staging'."
             exit 1
           fi
