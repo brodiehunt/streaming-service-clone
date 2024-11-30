@@ -1,9 +1,10 @@
-name: Restrict PRs to Main
+name: Restrict PRs to Main and Staging
 
 on:
   pull_request:
     branches:
       - main
+      - staging
 
 jobs:
   check-branch:
@@ -16,7 +17,14 @@ jobs:
 
       - name: Check Base Branch
         run: |
-          if [[ "${{ github.event.pull_request.head.ref }}" != "staging" ]]; then
-            echo "Pull requests to 'main' are only allowed from 'staging'."
-            exit 1
+          if [[ "${{ github.base_ref }}" == "main" ]]; then
+            if [[ "${{ github.event.pull_request.head.ref }}" != "staging" ]]; then
+              echo "Pull requests to 'main' are only allowed from 'staging'."
+              exit 1
+            fi
+          elif [[ "${{ github.base_ref }}" == "staging" ]]; then
+            if [[ "${{ github.event.pull_request.head.ref }}" != "develop" ]]; then
+              echo "Pull requests to 'staging' are only allowed from 'develop'."
+              exit 1
+            fi
           fi
