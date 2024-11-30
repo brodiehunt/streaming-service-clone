@@ -1,3 +1,5 @@
+import { getEpisodesByShowAndSeasonNumber } from '@/utils/episode'
+
 export default async function AllEpisodesPage({
   params: { showSlug, seasonSlug },
 }: {
@@ -5,6 +7,11 @@ export default async function AllEpisodesPage({
 }) {
   const [, seasonNumString] = seasonSlug.split('-')
   const seasonNumber = Number(seasonNumString)
-  console.log(`Show Slug: ${showSlug}, seasonNumber: ${seasonNumber}`)
+  const episodes = await getEpisodesByShowAndSeasonNumber({
+    showSlug,
+    seasonNumber,
+  })
+  console.log(episodes)
+
   return <div></div>
 }
