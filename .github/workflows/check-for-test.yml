@@ -3,7 +3,7 @@ name: Run Tests and Checks on Test Branch
 on:
   pull_request:
     branches:
-      - test
+      - develop
 
 jobs:
   run-tests:
