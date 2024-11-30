@@ -84,3 +84,50 @@ export const getShowWithCategoriesBySlug = async ({
     return null
   }
 }
+
+export const getShowsWithEpisodeCount = async () => {
+  try {
+    const shows = await prisma.show.findMany({
+      take: 8,
+      orderBy: {
+        updatedAt: 'desc',
+      },
+      include: {
+        seasons: {
+          include: {
+            episodes: {
+              select: {
+                id: true,
+              },
+            },
+          },
+        },
+      },
+    })
+
+    // Transform the data to include episode count
+    const showsWithEpisodeCounts = shows.map(show => {
+      const totalEpisodes = show.seasons.reduce((total, season) => {
+        return total + season.episodes.length
+      }, 0)
+
+      return {
+        id: show.id,
+        title: show.title,
+        slug: show.slug,
+        description: show.description,
+        heroImage: show.heroImage,
+        thumbnail: show.thumbnail,
+        rating: show.rating,
+        totalSeasons: show.totalSeasons,
+        totalEpisodes,
+        updatedAt: show.updatedAt,
+        createdAt: show.createdAt,
+      }
+    })
+
+    return showsWithEpisodeCounts
+  } catch {
+    return null
+  }
+}
