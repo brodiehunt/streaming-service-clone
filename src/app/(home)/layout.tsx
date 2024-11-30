@@ -14,7 +14,7 @@ export default async function HomeLayout({
   children: React.ReactNode
 }) {
   const { user } = await getCurrentSession()
-  console.log(user)
+
   return (
     <div className="flex flex-col relative min-h-[100vh]">
       <Provider>
