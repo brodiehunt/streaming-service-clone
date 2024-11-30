@@ -28,6 +28,8 @@ COPY . .
 RUN ls -la
 RUN ls -la prisma/
 
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
 # Run prisma generate before building the application
 COPY prisma ./prisma
 RUN npx prisma generate
