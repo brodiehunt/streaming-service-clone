@@ -8,9 +8,10 @@ const BlurHeroBackground: React.FC<{ thumbnail: string }> = ({ thumbnail }) => {
         alt=""
         fill={true}
         priority={true}
-        className="w-full h-full blur-xl"
+        className="w-full h-full blur-lg"
         style={{ objectFit: 'cover' }}
       />
+      <div className="absolute z-10 -bottom-10 left-0 w-full h-2/3 bg-black-bezier-to-top bg-bottom bg-no-repeat"></div>
     </div>
   )
 }
