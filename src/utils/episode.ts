@@ -14,6 +14,7 @@ export const getEpisodesByShowAndSeasonNumber = async ({
       },
       select: {
         thumbnail: true,
+        title: true,
         seasons: {
           where: {
             seasonNumber: seasonNumber,
@@ -33,6 +34,7 @@ export const getEpisodesByShowAndSeasonNumber = async ({
                 videoUrl: true,
                 createdAt: true,
                 updatedAt: true,
+                seasonId: true,
               },
             },
           },

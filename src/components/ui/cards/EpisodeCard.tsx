@@ -9,7 +9,7 @@ const EpisodeCard: React.FC<{
   showSlug: string
 }> = ({ episode, showSlug, season }) => {
   return (
-    <article className=" min-w-[200px] md:min-w-[300px] h-auto group transition-opacity duration-200">
+    <article className=" min-w-[200px] md:min-w-[250px] 2xl:min-w-[300px] h-auto group transition-opacity duration-200">
       <Link
         href={`/${showSlug}/season-${season}/episode-${episode.episodeNumber}`}
         title={`Watch Episode ${episode.episodeNumber}`}
