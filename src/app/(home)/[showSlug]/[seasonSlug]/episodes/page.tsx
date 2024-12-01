@@ -1,4 +1,5 @@
 import { getEpisodesByShowAndSeasonNumber } from '@/utils/episode'
+import BlurHeroBackground from '@/components/ui/heros/BlurHeroBackground'
 
 export default async function AllEpisodesPage({
   params: { showSlug, seasonSlug },
@@ -7,11 +8,16 @@ export default async function AllEpisodesPage({
 }) {
   const [, seasonNumString] = seasonSlug.split('-')
   const seasonNumber = Number(seasonNumString)
-  const episodes = await getEpisodesByShowAndSeasonNumber({
+  const showAndEpisodes = await getEpisodesByShowAndSeasonNumber({
     showSlug,
     seasonNumber,
   })
-  console.log(episodes)
 
-  return <div></div>
+  if (!showAndEpisodes) return null
+
+  return (
+    <div>
+      <BlurHeroBackground thumbnail={showAndEpisodes?.thumbnail} />
+    </div>
+  )
 }

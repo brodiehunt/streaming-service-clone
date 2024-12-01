@@ -8,43 +8,38 @@ export const getEpisodesByShowAndSeasonNumber = async ({
   seasonNumber: number
 }) => {
   try {
-    const episodes = await prisma.episode.findMany({
+    const showAndEpisodes = await prisma.show.findUnique({
       where: {
-        season: {
-          seasonNumber,
-          show: {
-            slug: showSlug,
-          },
-        },
-      },
-      orderBy: {
-        episodeNumber: 'asc',
+        slug: showSlug,
       },
       select: {
-        id: true,
-        episodeNumber: true,
-        title: true,
-        description: true,
-        thumbnailUrl: true,
-        duration: true,
-        videoUrl: true,
-        createdAt: true,
-        updatedAt: true,
-        season: {
+        thumbnail: true,
+        seasons: {
+          where: {
+            seasonNumber: seasonNumber,
+          },
           select: {
-            seasonNumber: true,
-            show: {
+            episodes: {
+              orderBy: {
+                episodeNumber: 'asc',
+              },
               select: {
+                id: true,
+                episodeNumber: true,
                 title: true,
-                slug: true,
-                thumbnail: true,
+                description: true,
+                thumbnailUrl: true,
+                duration: true,
+                videoUrl: true,
+                createdAt: true,
+                updatedAt: true,
               },
             },
           },
         },
       },
     })
-    return episodes
+    return showAndEpisodes
   } catch {
     return null
   }
