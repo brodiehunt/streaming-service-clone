@@ -7,9 +7,13 @@ const EpisodeCard: React.FC<{
   episode: Episode
   season: number
   showSlug: string
-}> = ({ episode, showSlug, season }) => {
+  isFlex: boolean
+}> = ({ episode, showSlug, season, isFlex }) => {
+  console.log('Is it flex?:', isFlex)
   return (
-    <article className=" min-w-[200px] md:min-w-[250px] 2xl:min-w-[300px] h-auto group transition-opacity duration-200">
+    <article
+      className={`${isFlex ? 'min-w-[200px] md:min-w-[250px] 2xl:min-w-[300px]' : ''} h-auto group transition-opacity duration-200`}
+    >
       <Link
         href={`/${showSlug}/season-${season}/episode-${episode.episodeNumber}`}
         title={`Watch Episode ${episode.episodeNumber}`}

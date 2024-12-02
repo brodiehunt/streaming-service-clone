@@ -22,7 +22,7 @@ export default async function ShowPage({
 
   return (
     <div>
-      <ShowHero show={show} />
+      <ShowHero show={show} currentSeason={1} />
       <Suspense fallback={<p className="z-30">Loading....</p>}>
         <CurrentSeasonEpisodesSection slug={params.showSlug} season={1} />
       </Suspense>
