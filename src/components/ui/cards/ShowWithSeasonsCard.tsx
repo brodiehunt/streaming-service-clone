@@ -10,7 +10,7 @@ const ShowWithSeasonCard: React.FC<{
   }
 }> = ({ show }) => {
   return (
-    <article className="">
+    <article className="min-w-[200px] md:min-w-[300px]">
       <Link href={`/${show.slug}`} title={show.title}>
         <Image
           className="w-full rounded-lg"

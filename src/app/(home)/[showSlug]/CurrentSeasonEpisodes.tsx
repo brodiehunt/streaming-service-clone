@@ -34,6 +34,7 @@ const CurrentSeasonEpisodesSection: React.FC<{
               episode={episode}
               season={season}
               showSlug={slug}
+              isFlex={true}
             />
           )
         })}
