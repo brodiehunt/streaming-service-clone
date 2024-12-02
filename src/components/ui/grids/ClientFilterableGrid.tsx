@@ -49,17 +49,16 @@ const FilterableCardGrid: React.FC<{
 
   return (
     <>
-      <div className="pt-4 flex justify-between align-bottom relative z-10">
+      <div className="pt-4 px-layout-x-large flex justify-between align-bottom relative z-10">
         <h2 className="text-xl">Episodes</h2>
-        <div>
-          <FilterDropdown
-            handleToggleOrder={handleToggleOrder}
-            setIsAsc={setIsAsc}
-            isAsc={isAsc}
-          />
-        </div>
+
+        <FilterDropdown
+          handleToggleOrder={handleToggleOrder}
+          setIsAsc={setIsAsc}
+          isAsc={isAsc}
+        />
       </div>
-      <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-4 md:py-8">
+      <section className="grid gap-3 px-layout-x-large sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-4 md:py-8">
         {episodesArr.map(episode => {
           return (
             <EpisodeCard
@@ -83,7 +82,7 @@ const FilterDropdown: React.FC<{
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="xl:p-3 relative">
+    <div className="relative flex items-center">
       <button
         onClick={() => setIsOpen(open => !open)}
         className={`
