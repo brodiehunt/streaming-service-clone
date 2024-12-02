@@ -115,6 +115,7 @@ export const HeroInfoComponent: React.FC<{
           <HeroSeasonDropdown
             showSlug={show.slug}
             seasons={show.totalSeasons}
+            currentSeason={1}
           />
           <LinkButton
             url={show.slug}

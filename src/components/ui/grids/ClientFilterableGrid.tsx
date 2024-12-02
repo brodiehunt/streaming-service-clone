@@ -66,6 +66,7 @@ const FilterableCardGrid: React.FC<{
               episode={episode}
               season={seasonNumber}
               showSlug={showSlug}
+              isFlex={false}
             />
           )
         })}

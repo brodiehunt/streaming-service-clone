@@ -8,7 +8,8 @@ import Link from 'next/link'
 const HeroSeasonDropdown: React.FC<{
   showSlug: string
   seasons: number
-}> = ({ showSlug, seasons }) => {
+  currentSeason: number
+}> = ({ showSlug, seasons, currentSeason = 1 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const multipleSeasons = seasons > 1
   return (
@@ -18,7 +19,7 @@ const HeroSeasonDropdown: React.FC<{
         type="secondary"
         onClick={() => setIsOpen(!isOpen)}
       >
-        Season 1
+        Season {currentSeason}
         {multipleSeasons && (
           <FaAngleDown
             className={`w-4 transition-duration-200 transition-transform ${isOpen ? 'rotate-180' : ''}`}

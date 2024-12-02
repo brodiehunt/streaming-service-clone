@@ -12,19 +12,23 @@ type ShowType = Show & {
   }[]
 }
 
-const ShowHero: React.FC<{ show: ShowType }> = ({ show }) => {
+const ShowHero: React.FC<{ show: ShowType; currentSeason: number }> = ({
+  show,
+  currentSeason,
+}) => {
   if (!show) return null
   return (
-    <section className="h-[80svh] md:h-[auto] md:max-h-[70vh] relative z-30">
+    <section className="h-[80svh] md:h-[auto] md:max-h-[700px] relative z-30">
       <HeroImageComponent thumbnail={show.thumbnail} title={show.title} />
-      <ShowInfoComponent show={show} />
+      <ShowInfoComponent show={show} currentSeason={currentSeason} />
     </section>
   )
 }
 
 const ShowInfoComponent: React.FC<{
   show: ShowType
-}> = async ({ show }) => {
+  currentSeason: number
+}> = async ({ show, currentSeason }) => {
   return (
     <div className="absolute bottom-[2rem] left-0 w-full px-layout-x-large md:bottom-[50%] md:translate-y-[50%]">
       <div className="flex flex-col items-start md:max-w-[450px]">
@@ -60,6 +64,7 @@ const ShowInfoComponent: React.FC<{
           <HeroSeasonDropdown
             showSlug={show.slug}
             seasons={show.totalSeasons}
+            currentSeason={currentSeason}
           />
         </div>
       </div>
