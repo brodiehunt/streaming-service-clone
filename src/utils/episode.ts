@@ -46,3 +46,51 @@ export const getEpisodesByShowAndSeasonNumber = async ({
     return null
   }
 }
+
+export const getEpisodeByNumberSeasonAndShowSlug = async ({
+  showSlug,
+  seasonNumber,
+  episodeNumber,
+}: {
+  showSlug: string
+  seasonNumber: number
+  episodeNumber: number
+}) => {
+  try {
+    const episode = await prisma.episode.findFirst({
+      where: {
+        episodeNumber,
+        season: {
+          seasonNumber,
+          show: {
+            slug: showSlug,
+          },
+        },
+      },
+      include: {
+        season: {
+          select: {
+            show: {
+              select: {
+                title: true,
+                categories: {
+                  select: {
+                    category: {
+                      select: {
+                        title: true,
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    })
+
+    return episode
+  } catch {
+    return null
+  }
+}
