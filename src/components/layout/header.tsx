@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import Logo from './logo'
+import Logo from '../ui/shared/logo'
 import { FaSearch, FaHome, FaUser, FaAngleDown, FaClock } from 'react-icons/fa'
 import { TbLogout2 } from 'react-icons/tb'
 import { RxHamburgerMenu } from 'react-icons/rx'
@@ -10,7 +10,7 @@ import { BsLightningFill } from 'react-icons/bs'
 import { TbCategoryFilled } from 'react-icons/tb'
 import { MdConnectedTv } from 'react-icons/md'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { logout } from '@/actions/logout.action'
 
 // Breakpoint for header is 1200px
@@ -19,7 +19,12 @@ const Header: React.FC<{ user: { givenName: string; id: number } | null }> = ({
   user,
 }) => {
   const [menuOpen, setMenuOpen] = useState(false)
-  console.log(menuOpen)
+  const pathname = usePathname()
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
+
   return (
     <header className="w-full p-4 sticky mb-[-80px] xl:mb-[-112px] top-0 left-0 flex items-center justify-between xl:px-[64px] xl:py-[32px] xl:justify-start z-50">
       <div className="xl:hidden">
@@ -132,6 +137,9 @@ const LoggedInDropdown: React.FC<{
 }> = ({ user, pathname }) => {
   const [isOpen, setIsOpen] = useState(false)
 
+  useEffect(() => {
+    setIsOpen(false)
+  }, [pathname])
   const handleLogout = async () => {
     try {
       const { success, message } = await logout()
@@ -210,7 +218,7 @@ const DropdownNavItem: React.FC<{
 
 export const HeaderGradient = () => {
   return (
-    <div className="fixed inset-0 h-60 bg-gradient-black-bezier bg-no-repeat bg-cover pointer-events-none z-40"></div>
+    <div className="fixed inset-0 h-[200px] bg-gradient-black-bezier bg-no-repeat bg-cover pointer-events-none z-20"></div>
   )
 }
 

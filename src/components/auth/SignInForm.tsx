@@ -22,7 +22,6 @@ export default function SignInForm() {
   const [serverError, setServerError] = useState('')
 
   const handleSigninSubmission: SubmitHandler<SigninForm> = async data => {
-    console.log('Sign in submission client', data)
     setServerError('')
 
     try {

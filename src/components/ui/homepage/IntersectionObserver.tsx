@@ -12,7 +12,6 @@ const ObserverComponent: React.FC<{ slug: string }> = ({ slug }) => {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    console.log('Use effect running in', slug)
     const intersectionOptions: IntersectionObserverInit = {
       root: null,
       rootMargin: '-40% 0px -40% 0px',
@@ -21,7 +20,6 @@ const ObserverComponent: React.FC<{ slug: string }> = ({ slug }) => {
 
     const intersectionCallback: IntersectionObserverCallback = entries => {
       if (entries[0].intersectionRatio <= 0) return
-      console.log('Intersection observer event', slug)
       setVisibleCategory(slug)
     }
     if (observer.current) observer.current.disconnect()

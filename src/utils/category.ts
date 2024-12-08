@@ -12,8 +12,8 @@ export const getCategoriesTitleAndSlug = async ({
 }: {
   userId: number | null
 }): Promise<CategoryButton[] | null> => {
+  console.log(userId)
   // User Id will be used to get 'continue watching' and 'for you' lists??
-  console.log(userId, 'The user Id - getCategoriesTitleAndSlug')
   try {
     const categories = await prisma.category.findMany({
       select: {
@@ -41,7 +41,6 @@ export const getCategoryBySlug = async (
   slug: string,
 ): Promise<Category | null> => {
   try {
-    console.log('What is the slug?', slug)
     const category = await prisma.category.findUnique({
       where: { slug },
     })
@@ -85,7 +84,6 @@ export async function getCategoryWithShows(slug: string) {
       throw null
     }
 
-    // Transform to a cleaner structure
     const transformedData = {
       id: categoryWithShows.id,
       title: categoryWithShows.title,

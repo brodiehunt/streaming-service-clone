@@ -15,7 +15,6 @@ const HorizontalCardSliderWrapper: React.FC<{ children: React.ReactNode }> = ({
   const handleScroll = () => {
     setScrollPosition(scrollElementRef.current?.scrollLeft || 0)
   }
-  console.log(scrollPosition)
 
   return (
     <div className="relative w-full overflow-hidden">

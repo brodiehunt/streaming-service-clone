@@ -21,7 +21,6 @@ const CategoryButtons: React.FC<{ categories: CategoryButton[] }> = ({
     setScrollPosition(navContainerRef.current?.scrollLeft || 0)
   }
 
-  console.log('The visible cateogry', visibleCategory)
   return (
     <div className="relative">
       <nav

@@ -12,9 +12,8 @@ const CategoryCard: React.FC<{ category: Category }> = ({ category }) => {
           <Image
             src={category.imageUrl}
             alt={`${category.title} category thumbnail`}
-            width={480}
-            height={270}
-            className="object-cover object-center"
+            fill={true}
+            className="object-cover object-center w-full h-full"
           />
           <div
             style={{
