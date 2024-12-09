@@ -44,14 +44,13 @@ const getGameOfThrones = async (): Promise<ShowResponse> => {
   }
 }
 
-export default async function ShowHero() {
+export default async function HomeHero() {
   const { data } = await getGameOfThrones()
 
   if (!data) return null
 
-  console.log(data)
   return (
-    <section className="h-[100svh] md:h-[auto] relative z-30">
+    <section className="h-[100svh] md:h-[auto] relative">
       <HeroImageComponent thumbnail={data.thumbnail} title={data.title} />
       <HeroInfoComponent show={data} />
     </section>
@@ -67,8 +66,9 @@ export const HeroImageComponent: React.FC<{
       <Image
         src={thumbnail || '/'}
         alt={`${title} show cover`}
-        layout="fill"
-        objectFit="cover"
+        fill={true}
+        priority={true}
+        className="w-full h-full object-cover"
       />
       <div className="absolute top-0 left-0 w-full h-full bg-black-bezier-to-top bg-bottom bg-no-repeat md:hidden"></div>
       <div className="absolute top-0 left-0 w-full h-full md:hidden"></div>
@@ -81,7 +81,7 @@ export const HeroInfoComponent: React.FC<{
   show: ShowWithCategories
 }> = async ({ show }) => {
   return (
-    <div className="absolute bottom-[2rem] left-0 w-full px-layout-x-large md:bottom-[50%] md:translate-y-[50%]">
+    <div className="absolute z-50 bottom-[2rem] left-0 w-full px-layout-x-large md:bottom-[50%] md:translate-y-[50%]">
       <div className="flex flex-col items-center md:items-start md:max-w-[450px]">
         <h2 className="font-bold text-4xl mb-4 text-center md:text-left md:max-w-[400px] md:text-6xl">
           {show.title}

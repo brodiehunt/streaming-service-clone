@@ -8,9 +8,14 @@ const ShowWithSeasonCard: React.FC<{
     thumbnail: string
     totalEpisodes: number
   }
-}> = ({ show }) => {
+  isFlex: boolean
+}> = ({ show, isFlex }) => {
   return (
-    <article className="min-w-[200px] md:min-w-[300px]">
+    <article
+      className={
+        isFlex ? 'min-w-[200px] md:min-w-[250px] 2xl:min-w-[300px]' : ''
+      }
+    >
       <Link href={`/${show.slug}`} title={show.title}>
         <Image
           className="w-full rounded-lg"

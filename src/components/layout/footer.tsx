@@ -1,5 +1,9 @@
 import Link from 'next/link'
-import Logo, { GooglePlayLogo, AppleStoreLogo, NineLogoGrey } from './logo'
+import Logo, {
+  GooglePlayLogo,
+  AppleStoreLogo,
+  NineLogoGrey,
+} from '../ui/shared/logo'
 import LogoutButton from '../auth/LogoutButton'
 const Footer: React.FC<{
   user: { givenName: string; id: number } | null

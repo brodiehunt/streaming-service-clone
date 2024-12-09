@@ -23,7 +23,6 @@ const ResetPasswordConfirmForm: React.FC<{ token: string | string[] }> = ({
     formState: { errors },
   } = useForm<ResetPasswordForm>({ resolver: zodResolver(resetPasswordSchema) })
 
-  console.log(token)
   const handleResetPassword: SubmitHandler<ResetPasswordForm> = async data => {
     if (typeof token !== 'string') {
       return setServerError('Could not reset password')

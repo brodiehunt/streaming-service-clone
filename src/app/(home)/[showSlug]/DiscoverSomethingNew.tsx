@@ -1,4 +1,4 @@
-import HorizontalCardSliderWrapper from '@/components/layout/HorizontalCardSliderWrapper'
+import HorizontalCardSliderWrapper from '@/components/ui/grids/HorizontalCardSliderWrapper'
 import { getShowsWithEpisodeCount } from '@/utils/show'
 import ShowWithSeasonCard from '@/components/ui/cards/ShowWithSeasonsCard'
 const DiscoverSomethingNewSection: React.FC = async () => {
@@ -23,6 +23,7 @@ const DiscoverSomethingNewSection: React.FC = async () => {
                 thumbnail: show.thumbnail,
                 totalEpisodes: show.totalEpisodes,
               }}
+              isFlex={true}
             />
           )
         })}

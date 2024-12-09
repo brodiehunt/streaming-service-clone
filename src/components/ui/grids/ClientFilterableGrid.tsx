@@ -4,6 +4,7 @@ import { useState } from 'react'
 import EpisodeCard from '../cards/EpisodeCard'
 import { FaAngleDown } from 'react-icons/fa'
 import { TiTick } from 'react-icons/ti'
+import GridCardWrapper from './GridCardWrapper'
 
 const FilterableCardGrid: React.FC<{
   episodes: {
@@ -45,8 +46,6 @@ const FilterableCardGrid: React.FC<{
     }
   }
 
-  console.log(`isAsc: ${isAsc}, episodes: ${episodesArr}`)
-
   return (
     <>
       <div className="pt-4 px-layout-x-large flex justify-between align-bottom relative z-10">
@@ -58,18 +57,20 @@ const FilterableCardGrid: React.FC<{
           isAsc={isAsc}
         />
       </div>
-      <section className="grid gap-3 px-layout-x-large sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-4 md:py-8">
-        {episodesArr.map(episode => {
-          return (
-            <EpisodeCard
-              key={episode.id}
-              episode={episode}
-              season={seasonNumber}
-              showSlug={showSlug}
-              isFlex={false}
-            />
-          )
-        })}
+      <section className="px-layout-x-large py-4 md:py-8">
+        <GridCardWrapper>
+          {episodesArr.map(episode => {
+            return (
+              <EpisodeCard
+                key={episode.id}
+                episode={episode}
+                season={seasonNumber}
+                showSlug={showSlug}
+                isFlex={false}
+              />
+            )
+          })}
+        </GridCardWrapper>
       </section>
     </>
   )

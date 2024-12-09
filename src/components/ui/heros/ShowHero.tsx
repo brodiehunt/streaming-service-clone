@@ -1,5 +1,5 @@
 import { Show } from '@prisma/client'
-import { HeroImageComponent } from '../homepage/Hero'
+import { HeroImageComponent } from './HomeHero'
 import LinkButton from '../shared/LinkButton'
 import { FaPlay } from 'react-icons/fa'
 import HeroSeasonDropdown from '../shared/SeasonDropdown'
@@ -18,7 +18,7 @@ const ShowHero: React.FC<{ show: ShowType; currentSeason: number }> = ({
 }) => {
   if (!show) return null
   return (
-    <section className="h-[80svh] md:h-[auto] md:max-h-[700px] relative z-30">
+    <section className="h-[80svh] md:h-[auto] md:max-h-[600px] 2xl:max-h-[700px] relative ">
       <HeroImageComponent thumbnail={show.thumbnail} title={show.title} />
       <ShowInfoComponent show={show} currentSeason={currentSeason} />
     </section>
@@ -30,7 +30,7 @@ const ShowInfoComponent: React.FC<{
   currentSeason: number
 }> = async ({ show, currentSeason }) => {
   return (
-    <div className="absolute bottom-[2rem] left-0 w-full px-layout-x-large md:bottom-[50%] md:translate-y-[50%]">
+    <div className="absolute bottom-[2rem] left-0 w-full px-layout-x-large md:bottom-[50%] md:translate-y-[50%] z-50">
       <div className="flex flex-col items-start md:max-w-[450px]">
         <h2 className="font-bold text-3xl mb-2 md:max-w-[400px] md:text-4xl">
           {show.title}

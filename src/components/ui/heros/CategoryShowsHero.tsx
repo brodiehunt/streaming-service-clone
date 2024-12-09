@@ -10,8 +10,8 @@ const CategoryShowsHero: React.FC<{
           className="object-cover object-center w-full h-full"
           src={category.imgUrl}
           alt=""
-          width={1600}
-          height={1600}
+          fill={true}
+          priority={true}
         />
         <div
           style={{
